@@ -9,15 +9,16 @@ const Dropdown = () => {
   const [error, setError] = useState<Error | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const dropdown = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   const handler = (event) => {
-  //     //   console.log(dropdown.current);
-  //     if (!dropdown.current) return;
-  //     if (!dropdown.current.contains(event.target)) setIsOpen(false);
-  //   };
-  //   document.addEventListener("click", handler, true);
-  //   return () => document.removeEventListener("click", handler);
-  // }, [dropdown]);
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      //   console.log(dropdown.current);
+      if (!dropdown.current) return;
+      if (!dropdown.current.contains(event.target as HTMLElement))
+        setIsOpen(false);
+    };
+    document.addEventListener("click", handler, true);
+    return () => document.removeEventListener("click", handler);
+  }, [dropdown]);
 
   const getItems = async () => {
     try {
@@ -35,7 +36,7 @@ const Dropdown = () => {
   useEffect(() => {
     getItems();
   }, []);
-  if (error) return <ErrorPage />;
+  if (error) return <ErrorPage message={error.message} />;
   return (
     <div ref={dropdown} className="relative inline-block text-left ml-5 ">
       <div>

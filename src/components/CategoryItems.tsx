@@ -24,7 +24,7 @@ const CategoryItems = () => {
   useEffect(() => {
     getItems();
   }, [category]);
-  if (error) return <ErrorPage />;
+  if (error) return <ErrorPage message={error.message} />;
   return (
     <>
       {isLoading ? (

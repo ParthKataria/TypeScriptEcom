@@ -23,7 +23,7 @@ const Home = () => {
     getItems();
   }, []);
   //   console.log(items);
-  if (error) return <ErrorPage />;
+  if (error) return <ErrorPage message={error.message} />;
   return (
     <div>{isLoading ? <div>Loading...</div> : <ItemsList items={items} />}</div>
   );

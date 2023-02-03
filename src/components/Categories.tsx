@@ -23,7 +23,7 @@ const Categories = () => {
     getItems();
   }, []);
   //   console.log(categories);
-  if (error) return <ErrorPage />;
+  if (error) return <ErrorPage message={error.message} />;
   return (
     <>
       {isLoading ? (

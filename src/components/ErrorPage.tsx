@@ -1,5 +1,6 @@
 import React from "react";
-const ErrorPage = () => {
-  return <div>Something is wrong. </div>;
+import { ErrorPageProps } from "./definations";
+const ErrorPage = ({ message }: ErrorPageProps) => {
+  return <div>Something is wrong.{message}</div>;
 };
 export default ErrorPage;

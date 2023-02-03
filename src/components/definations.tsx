@@ -9,7 +9,7 @@ export interface NavBarProps {
 export interface LoginProps {
   handleSetUser: (USER: MyUser | null) => void;
 }
-interface Product {
+export interface Product {
   id: string;
   image: string;
   price: number;
@@ -20,4 +20,7 @@ export interface Item {
 }
 export interface Items {
   items: Product[];
+}
+export interface ErrorPageProps {
+  message: string;
 }

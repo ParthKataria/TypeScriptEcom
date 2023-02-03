@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import ErrorPage from "./ErrorPage";
 interface Result {
   images: { url: string }[];
@@ -49,7 +49,6 @@ const AllItems = () => {
       setItems([...items, ...response.data.results]);
       setisLoading(false);
     } catch (err) {
-      console.log(err);
       setisLoading(false);
       setError(err as Error);
     }
@@ -58,7 +57,7 @@ const AllItems = () => {
     getItems(currentPage);
   }, [currentPage]);
   //   console.log(items);
-  if (error) return <ErrorPage />;
+  if (error) return <ErrorPage message={error.message} />;
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5">
