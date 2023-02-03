@@ -15,6 +15,12 @@ export interface Product {
   price: number;
   title: string;
 }
+export interface ItemDetails {
+  image: string;
+  price: number;
+  title: string;
+  description: string;
+}
 export interface Item {
   product: Product;
 }

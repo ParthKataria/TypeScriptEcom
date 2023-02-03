@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ItemsList from "./ItemsList";
 import ErrorPage from "./ErrorPage";
+import { Product } from "./definations";
 const CategoryItems = () => {
   const { category } = useParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setisLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const getItems = async () => {

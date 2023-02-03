@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import ErrorPage from "./ErrorPage";
 interface Result {
   images: { url: string }[];
@@ -10,7 +10,6 @@ const AllItems = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [error, setError] = useState<Error | null>(null);
   const observer = useRef<IntersectionObserver | null>();
-  //   console.log(observer);
   const lastElement = useCallback(
     (node: HTMLImageElement) => {
       //   console.log(node);

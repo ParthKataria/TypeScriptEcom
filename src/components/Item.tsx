@@ -1,13 +1,8 @@
 import { useParams } from "react-router-dom";
+import { ItemDetails } from "./definations";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ErrorPage from "./ErrorPage";
-interface ItemDetails {
-  image: string;
-  price: number;
-  title: string;
-  description: string;
-}
 const Item = () => {
   const { id } = useParams();
   const [item, setItem] = useState<ItemDetails | null>(null);
